@@ -5,202 +5,244 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Greenbond Finance — Trusted financial solutions for your next move</title>
+  <meta name="description"
+    content="Greenbond Finance Company Limited provides trusted personal and business loans, working capital, asset finance, and high-yield investment solutions in Nigeria. Licensed and regulated by the Central Bank of Nigeria (CBN).">
+  
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Boldonse&family=JetBrains+Mono:wght@500&family=Zalando+Sans:wdth,wght@75..125,200..900&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=JetBrains+Mono:wght@500&family=Zalando+Sans:wdth,wght@75..125,200..900&display=swap"
+      rel="stylesheet">
+  </noscript>
+  
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="src/assets/gb-favicon.png" />
-  <meta property="og:image"
-    content="https://res.cloudinary.com/dn1doiatc/image/upload/v1792602213/og-image_jl2vwc.png" />
-  <!-- <meta property="og:url" content="https://afolabi-eta.vercel.app/" /> -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Greenbond Finance" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="src/assets/gb-favicon.png" type="image/png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Greenbond Finance">
+  <meta property="og:url" content="https://greenbondng.com/">
+  <meta property="og:title" content="Greenbond Finance — Trusted financial solutions for your next move">
+  <meta property="og:description"
+    content="Access tailored personal & business loans, working capital, and secure investment opportunities with Greenbond Finance. Fully licensed by the CBN.">
+  <meta property="og:image" content="https://res.cloudinary.com/dn1doiatc/image/upload/v1792602213/og-image_jl2vwc.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Greenbond Finance — trusted financial solutions for your next move">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@greenbondfcl">
-  <meta name="twitter:title" content="Greenbond Finance" />
-  <meta name="twitter:description" content="Trusted financial solutions for your next move" />
-  <meta name="twitter:image"
-    content="https://res.cloudinary.com/dn1doiatc/image/upload/v1792602213/og-image_jl2vwc.png" />
+  <meta name="twitter:title" content="Greenbond Finance — Trusted financial solutions for your next move">
+  <meta name="twitter:description"
+    content="Access tailored personal & business loans, working capital, and secure investment opportunities with Greenbond Finance. Fully licensed by the CBN.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dn1doiatc/image/upload/v1792602213/og-image_jl2vwc.png">
 </head>
 
 <body>
   <div class="wrap">
+    <!-- Navbar -->
+    <header class="nav" role="banner">
+      <a class="nav__logo" href="#" aria-label="Greenbond Finance home">
+        <img src="src/assets/gb-logo.webp" alt="Greenbond Finance Logo" width="153" height="28">
+      </a>
 
-    <!-- Navbar (11:39) -->
-    <header class="nav">
-      <a class="nav__logo" href="#" aria-label="Greenbond Finance home"><img src="src/assets/gb-logo.png"
-          alt="Greenbond Finance"></a>
-      <nav class="nav__links" aria-label="Primary">
-        <a class="nav__link" href="#">Products <img src="src/assets/arrow-down-s-line.svg" alt=""></a>
-        <a class="nav__link" href="#">Company</a>
-        <a class="nav__link" href="#">Media</a>
+      <!-- Mobile Hamburger Toggle -->
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <nav class="nav__links" id="primary-nav" aria-label="Primary navigation">
+        <!-- Products Dropdown -->
+        <div class="nav__dropdown" id="nav-dropdown">
+          <button class="nav__link nav__link--btn" id="products-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="products-menu">
+            Products <img class="dropdown-arrow" src="src/assets/arrow-down-s-line.svg" alt="" aria-hidden="true" width="16" height="16">
+          </button>
+          <div class="nav__menu" id="products-menu" aria-labelledby="products-trigger" hidden>
+            <div class="nav__menu-col">
+              <span class="nav__menu-header">Financing &amp; Loans</span>
+              <a class="nav__menu-item" href="#loans">Personal Loans</a>
+              <a class="nav__menu-item" href="#loans">Business Loans</a>
+              <a class="nav__menu-item" href="#loans">Working Capital</a>
+              <a class="nav__menu-item" href="#loans">Asset &amp; Project Finance</a>
+            </div>
+            <div class="nav__menu-col">
+              <span class="nav__menu-header">Wealth &amp; Savings</span>
+              <a class="nav__menu-item" href="#investments">Diverse Opportunities</a>
+              <a class="nav__menu-item" href="#investments">Clear &amp; Transparent Yields</a>
+              <a class="nav__menu-item" href="#investments">Goal-Focused Growth</a>
+            </div>
+          </div>
+        </div>
+
+        <a class="nav__link" href="#why">Company</a>
+        <a class="nav__link" href="#loans">Loans</a>
+        <a class="nav__link" href="#investments">Investments</a>
+        <a class="nav__link" href="#faq">FAQ</a>
         <a class="nav__link" href="#contact">Contact us</a>
-        <a class="nav__link" href="#">Blog</a>
+        <div class="nav__cta nav__cta--mobile">
+          <a class="btn btn--nav" href="#loans">Get Started <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+        </div>
       </nav>
-      <div class="nav__cta"><a class="btn btn--nav" href="#">Get Started <img src="src/assets/right-icon.svg"
-            alt=""></a></div>
+
+      <div class="nav__cta nav__cta--desktop">
+        <a class="btn btn--nav" href="#loans">Get Started <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+      </div>
     </header>
 
-    <main class="home">
+    <!-- Main Content -->
+    <main class="home" id="main">
 
-      <!-- Hero (26:1877) + partners + numbers (32:2023) -->
-      <section class="hero" aria-label="Hero">
+      <!-- Hero Section -->
+      <section class="hero" aria-label="Hero Introduction" aria-roledescription="carousel">
         <div class="hero__row">
           <div class="hero__copy">
-            <div>
-              <div class="hero__main">
-                <div class="hero__badge"><img src="src/assets/cbn.png" alt=""><span>Fully Licensed and Regulated by the
-                    CBN</span></div>
-                <h1 class="display hero__title">Trusted financial<br>solutions for<br>your next move</h1>
+            <div class="hero__slides" id="hero-slides">
+              <!-- Slide 1 -->
+              <div class="hero__slide" id="hero-slide-1" role="tabpanel" aria-labelledby="hero-dot-1">
+                <div class="hero__slide__body">
+                  <div class="hero__main">
+                    <div class="hero__badge">
+                      <img src="src/assets/cbn.webp" alt="CBN seal" width="18" height="24">
+                      <span>Fully Licensed and Regulated by the CBN</span>
+                    </div>
+                    <h1 class="display hero__title">Trusted financial<br>solutions for<br>your next move</h1>
+                  </div>
+                  <p class="lead hero__sub">Whether you're looking to fund your next big idea or grow your money for the future, we give you access to financial solutions designed around your goals.</p>
+                  <div class="hero__actions">
+                    <a class="btn" href="#loans">Apply for a GB Loan <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+                    <a class="btn btn--ghost" href="#investments">Explore Investments <img src="src/assets/right-icon-black.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+                  </div>
+                </div>
+                <ul class="chips" aria-label="Key offerings">
+                  <li class="chip"><img src="src/assets/chip-1.svg" alt="" aria-hidden="true" width="16" height="16">Augment Working Capital</li>
+                  <li class="chip__sep" aria-hidden="true">/</li>
+                  <li class="chip"><img src="src/assets/chip-2.svg" alt="" aria-hidden="true" width="16" height="16">Asset Finance</li>
+                  <li class="chip__sep" aria-hidden="true">/</li>
+                  <li class="chip"><img src="src/assets/chip-3.svg" alt="" aria-hidden="true" width="16" height="16">Project Finance</li>
+                </ul>
               </div>
-              <p class="lead hero__sub" style="margin-top:24px">Whether you're looking to fund your next big idea or
-                grow your money for the future, We gives you access to financial solutions designed around your goals.
-              </p>
-              <div class="hero__actions">
-                <a class="btn" href="#loans">Apply for a GB Loan <img src="src/assets/right-icon.svg" alt=""></a>
-                <a class="btn btn--ghost" href="#investments">Explore Investments <img
-                    src="src/assets/right-icon-black.svg" alt=""></a>
+
+              <!-- Slide 2 -->
+              <div class="hero__slide" id="hero-slide-2" role="tabpanel" aria-labelledby="hero-dot-2" hidden>
+                <div class="hero__slide__body">
+                  <div class="hero__main">
+                    <div class="hero__badge">
+                      <img src="src/assets/cbn.webp" alt="CBN seal" width="18" height="24">
+                      <span>Flexible Tenors from 1 to 12 Months</span>
+                    </div>
+                    <h2 class="display hero__title">Powering<br>business<br>expansion</h2>
+                  </div>
+                  <p class="lead hero__sub">From stock and raw materials to equipment and expansion, unlock working capital that flexes with the way your business actually grows.</p>
+                  <div class="hero__actions">
+                    <a class="btn btn--brown" href="#loans">Fund Your Business <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+                    <a class="btn btn--ghost" href="#why">Why Greenbond <img src="src/assets/right-icon-black.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+                  </div>
+                </div>
+                <ul class="chips" aria-label="Key offerings">
+                  <li class="chip"><img src="src/assets/chip-1.svg" alt="" aria-hidden="true" width="16" height="16">Working Capital</li>
+                  <li class="chip__sep" aria-hidden="true">/</li>
+                  <li class="chip"><img src="src/assets/chip-2.svg" alt="" aria-hidden="true" width="16" height="16">Equipment Finance</li>
+                  <li class="chip__sep" aria-hidden="true">/</li>
+                  <li class="chip"><img src="src/assets/chip-3.svg" alt="" aria-hidden="true" width="16" height="16">Inventory Funding</li>
+                </ul>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="hero__slide" id="hero-slide-3" role="tabpanel" aria-labelledby="hero-dot-3" hidden>
+                <div class="hero__slide__body">
+                  <div class="hero__main">
+                    <div class="hero__badge">
+                      <img src="src/assets/cbn.webp" alt="CBN seal" width="18" height="24">
+                      <span>Transparent, Fixed-Tenor Notes</span>
+                    </div>
+                    <h2 class="display hero__title">High-yield<br>investments<br>built to compound</h2>
+                  </div>
+                  <p class="lead hero__sub">Put your money to work with high-yield investment notes designed for capital preservation, competitive returns and absolute transparency.</p>
+                  <div class="hero__actions">
+                    <a class="btn btn--teal" href="#investments">Start Building Wealth <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+                    <a class="btn btn--ghost" href="#faq">Read Our FAQs <img src="src/assets/right-icon-black.svg" alt="" aria-hidden="true" width="16" height="16"></a>
+                  </div>
+                </div>
+                <ul class="chips" aria-label="Key offerings">
+                  <li class="chip"><img src="src/assets/chip-1.svg" alt="" aria-hidden="true" width="16" height="16">Diverse Opportunities</li>
+                  <li class="chip__sep" aria-hidden="true">/</li>
+                  <li class="chip"><img src="src/assets/chip-2.svg" alt="" aria-hidden="true" width="16" height="16">Clear &amp; Transparent Yields</li>
+                  <li class="chip__sep" aria-hidden="true">/</li>
+                  <li class="chip"><img src="src/assets/chip-3.svg" alt="" aria-hidden="true" width="16" height="16">Goal-Focused Growth</li>
+                </ul>
               </div>
             </div>
-            <ul class="chips">
-              <li class="chip"><img src="src/assets/chip-1.svg" alt="">Augment Working Capital</li>
-              <li class="chip__sep" aria-hidden="true">/</li>
-              <li class="chip"><img src="src/assets/chip-2.svg" alt="">Asset Finance</li>
-              <li class="chip__sep" aria-hidden="true">/</li>
-              <li class="chip"><img src="src/assets/chip-3.svg" alt="">Project Finance</li>
-            </ul>
           </div>
           <div class="hero__art">
             <div class="hero__frame">
-              <img class="hero-image" src="src/assets/hero-image.png" alt="Two smiling Greenbond customers">
+              <img class="hero-image" src="src/assets/hero-image.webp" alt="Smiling Greenbond Finance customers discussing financial growth" fetchpriority="high" decoding="async">
             </div>
           </div>
         </div>
         <div class="hero__controls">
-          <div class="dots" id="hero-dots" aria-hidden="true">
-            <span class="dot" aria-current="true"></span><span class="dot"></span><span class="dot"></span>
+          <div class="dots" id="hero-dots" aria-label="Carousel navigation" role="tablist">
+            <button class="dot" id="hero-dot-1" type="button" role="tab" aria-selected="true" aria-controls="hero-slide-1" aria-label="Slide 1: Trusted Financial Solutions"></button>
+            <button class="dot" id="hero-dot-2" type="button" role="tab" aria-selected="false" aria-controls="hero-slide-2" tabindex="-1" aria-label="Slide 2: Powering Business Expansion"></button>
+            <button class="dot" id="hero-dot-3" type="button" role="tab" aria-selected="false" aria-controls="hero-slide-3" tabindex="-1" aria-label="Slide 3: High-Yield Investments"></button>
           </div>
           <div class="arrows">
-            <button class="circle-btn" id="hero-prev" type="button" aria-label="Previous slide"><img
-                src="src/assets/left-arrow-grey.svg" alt=""></button>
-            <button class="circle-btn circle-btn--solid" id="hero-next" type="button" aria-label="Next slide"><img
-                src="src/assets/right-icon.svg" alt=""></button>
+            <button class="circle-btn" id="hero-prev" type="button" aria-label="Previous slide">
+              <img src="src/assets/left-arrow-grey.svg" alt="" aria-hidden="true" width="20" height="20">
+            </button>
+            <button class="circle-btn circle-btn--solid" id="hero-next" type="button" aria-label="Next slide">
+              <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="20" height="20">
+            </button>
           </div>
         </div>
       </section>
 
-      <div>
-        <section class="partners" aria-label="Investors and partners">
+      <!-- Partners & Metrics Strip -->
+      <div class="trust-strip">
+        <section class="partners" aria-label="Our Investors and Partners">
           <div class="partners__label">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 13 24" fill="none">
-              <g clip-path="url(#clip0_16_1237)">
-                <mask id="mask0_16_1237" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="13"
-                  height="24">
-                  <path d="M12.0616 0L0.123169 0L0.123169 24H12.0616V0Z" fill="white" />
-                </mask>
-                <g mask="url(#mask0_16_1237)">
-                  <path
-                    d="M9.21232 20.3961C10.2668 20.0688 11.162 19.2707 11.5719 18.1524C11.9818 17.0357 11.8153 15.8479 11.2214 14.9151C11.1504 14.8021 11.0128 14.7528 10.8853 14.7919C9.82938 15.1193 8.93421 15.916 8.52429 17.0342C8.11437 18.1524 8.28239 19.3402 8.87483 20.2716C8.9458 20.3846 9.08341 20.4338 9.21088 20.3947L9.21232 20.3961Z"
-                    fill="#565658" />
-                  <path
-                    d="M6.01413 18.1988C4.89734 17.7889 3.70958 17.9555 2.77679 18.5494C2.66379 18.6204 2.61449 18.758 2.65359 18.8854C2.98099 19.9414 3.77766 20.8365 4.89589 21.2465C6.01413 21.6564 7.20189 21.4884 8.13326 20.8959C8.24625 20.825 8.2955 20.6873 8.25639 20.5599C7.92903 19.5054 7.13091 18.6102 6.01268 18.2003L6.01413 18.1988Z"
-                    fill="#565658" />
-                  <path
-                    d="M6.34588 13.0116C5.77662 13.9879 5.73462 15.1264 6.1315 16.0969C6.1822 16.2215 6.31112 16.2968 6.44438 16.2794C7.48439 16.1447 8.45198 15.545 9.01979 14.5687C9.5876 13.5925 9.63105 12.4554 9.23561 11.4849C9.18492 11.3603 9.05745 11.285 8.92274 11.3024C7.88273 11.4371 6.91514 12.0353 6.34588 13.0116Z"
-                    fill="#565658" />
-                  <path
-                    d="M5.32307 16.5752C5.44764 16.5245 5.52296 16.3956 5.50558 16.2623C5.37087 15.2223 4.7712 14.2547 3.79492 13.6869C2.81867 13.1191 1.68157 13.0756 0.711065 13.4711C0.586465 13.5218 0.511166 13.6492 0.528565 13.7839C0.663265 14.8239 1.26147 15.7915 2.23777 16.3608C3.21407 16.93 4.35258 16.9721 5.32307 16.5752Z"
-                    fill="#565658" />
-                  <path
-                    d="M8.29235 7.38304C7.31607 7.31641 6.32096 7.68432 5.61844 8.47085C4.91592 9.25738 4.66244 10.2887 4.83915 11.2505C4.86378 11.3838 4.97531 11.4823 5.11002 11.4909C6.0863 11.5576 7.07996 11.1882 7.78248 10.4031C8.48355 9.6166 8.73848 8.58673 8.56177 7.62493C8.53714 7.49167 8.42706 7.39318 8.29235 7.38304Z"
-                    fill="#565658" />
-                  <path
-                    d="M1.2182 10.7738C2.0047 11.4763 3.03602 11.7298 3.99781 11.5531C4.13107 11.5285 4.22957 11.417 4.23826 11.2822C4.30489 10.306 3.93553 9.31231 3.15045 8.60979C2.3639 7.90872 1.334 7.65379 0.372204 7.8305C0.239004 7.85513 0.140504 7.96521 0.130404 8.09992C0.063704 9.0762 0.431604 10.0713 1.2182 10.7738Z"
-                    fill="#565658" />
-                  <path
-                    d="M4.73659 6.72232C5.48401 7.03664 6.36179 7.02216 7.13094 6.60499C7.89864 6.18783 8.39114 5.46069 8.53454 4.66257C8.55916 4.52786 8.48529 4.39315 8.35927 4.33956C7.61185 4.02379 6.73406 4.03972 5.96492 4.45689C5.19577 4.87405 4.70472 5.60264 4.56132 6.40076C4.53671 6.53547 4.61057 6.67018 4.73659 6.72377V6.72232Z"
-                    fill="#565658" />
-                  <path
-                    d="M5.45636 3.20536C6.06472 3.05182 6.60356 2.639 6.89905 2.02918C7.1931 1.41937 7.18006 0.740029 6.92223 0.167876C6.86574 0.0433064 6.72524 -0.0247725 6.59197 0.00854273C5.98216 0.162082 5.44332 0.573453 5.14928 1.18472C4.85524 1.79453 4.86827 2.47387 5.12755 3.04602C5.18404 3.17059 5.32455 3.23867 5.45781 3.20536H5.45636Z"
-                    fill="#565658" />
-                  <path
-                    d="M3.76026 6.43287C3.89497 6.4575 4.02968 6.38362 4.08327 6.2576C4.3976 5.51018 4.38311 4.6324 3.96595 3.86325C3.54878 3.09555 2.82169 2.60307 2.02349 2.45967C1.88879 2.43504 1.75409 2.50892 1.70049 2.63494C1.38479 3.38235 1.40069 4.26014 1.81779 5.02929C2.23499 5.79843 2.96359 6.28947 3.76171 6.43287H3.76026Z"
-                    fill="#565658" />
-                  <path
-                    d="M11.8661 23.3161C10.5031 22.6121 9.6934 21.3925 9.6847 21.3809C9.57607 21.2143 9.35155 21.1665 9.18353 21.2766C9.0155 21.3853 8.96915 21.6098 9.07779 21.7778C9.114 21.8343 9.99468 23.1655 11.533 23.9607C11.5866 23.9882 11.6431 24.0012 11.6995 24.0012C11.8299 24.0012 11.9574 23.9303 12.0211 23.8057C12.1124 23.6275 12.0428 23.4088 11.8661 23.3175V23.3161Z"
-                    fill="#565658" />
-                </g>
-              </g>
-              <defs>
-                <clipPath id="clip0_16_1237">
-                  <rect width="13" height="24" fill="white" transform="matrix(-1 0 0 1 13 0)" />
-                </clipPath>
-              </defs>
+            <svg class="partners__laurel" xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 13 24" fill="none" aria-hidden="true">
+              <path d="M12.06 0H.12V24h11.94V0Z" fill="none"/>
+              <path d="M9.21 20.4c1.06-.33 1.95-1.13 2.36-2.25.41-1.12.24-2.3-.35-3.24a.27.27 0 0 0-.33-.12c-1.06.33-1.95 1.13-2.36 2.25-.41 1.12-.24 2.3.35 3.24.07.11.21.16.33.12Z" fill="#565658"/>
+              <path d="M6.01 18.2c-1.11-.41-2.3-.24-3.23.35a.28.28 0 0 0-.12.34c.33 1.05 1.12 1.95 2.24 2.36 1.12.41 2.3.24 3.24-.35.11-.07.16-.21.12-.34-.32-1.05-1.12-1.95-2.24-2.36Z" fill="#565658"/>
+              <path d="M6.35 13.01c-.57.98-.62 2.12-.22 3.09.05.12.18.2.31.18 1.04-.13 2.01-.73 2.58-1.71.57-.97.61-2.11.21-3.08a.3.3 0 0 0-.31-.19c-1.04.14-2 .74-2.57 1.71Z" fill="#565658"/>
+              <path d="M5.32 16.58c.13-.06.2-.18.19-.32-.14-1.04-.74-2.01-1.72-2.57-.97-.57-2.11-.62-3.08-.22a.3.3 0 0 0-.18.31c.13 1.04.73 2.01 1.71 2.58.97.57 2.11.61 3.08.22Z" fill="#565658"/>
+              <path d="M8.29 7.38c-.97-.06-1.97.3-2.67 1.09-.7.79-.96 1.82-.78 2.78.02.13.14.23.27.24.98.07 1.97-.3 2.67-1.09.7-.78.96-1.81.78-2.78a.29.29 0 0 0-.27-.24Z" fill="#565658"/>
             </svg>
             <span>OUR INVESTORS &amp; PARTNERS</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 13 24" fill="none">
-              <g clip-path="url(#clip0_16_1221)">
-                <mask id="mask0_16_1221" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="13"
-                  height="24">
-                  <path d="M0.938431 0L12.8768 0V24H0.938431V0Z" fill="white" />
-                </mask>
-                <g mask="url(#mask0_16_1221)">
-                  <path
-                    d="M3.78768 20.3961C2.73318 20.0688 1.83801 19.2707 1.42809 18.1524C1.01817 17.0357 1.18474 15.8479 1.77862 14.9151C1.8496 14.8021 1.98721 14.7528 2.11467 14.7919C3.17062 15.1193 4.06579 15.916 4.47571 17.0342C4.88563 18.1524 4.71761 19.3402 4.12517 20.2716C4.0542 20.3846 3.91659 20.4338 3.78912 20.3947L3.78768 20.3961Z"
-                    fill="#565658" />
-                  <path
-                    d="M6.98587 18.1988C8.10266 17.7889 9.29042 17.9555 10.2232 18.5494C10.3362 18.6204 10.3855 18.758 10.3464 18.8854C10.019 19.9414 9.22234 20.8365 8.10411 21.2465C6.98587 21.6564 5.79811 21.4884 4.86674 20.8959C4.75375 20.825 4.7045 20.6873 4.74361 20.5599C5.07097 19.5054 5.86909 18.6102 6.98732 18.2003L6.98587 18.1988Z"
-                    fill="#565658" />
-                  <path
-                    d="M6.65412 13.0116C7.22338 13.9879 7.26538 15.1264 6.8685 16.0969C6.8178 16.2215 6.68888 16.2968 6.55562 16.2794C5.51561 16.1447 4.54802 15.545 3.98021 14.5687C3.4124 13.5925 3.36895 12.4554 3.76439 11.4849C3.81508 11.3603 3.94255 11.285 4.07726 11.3024C5.11727 11.4371 6.08486 12.0353 6.65412 13.0116Z"
-                    fill="#565658" />
-                  <path
-                    d="M7.67693 16.5752C7.55236 16.5245 7.47704 16.3956 7.49442 16.2623C7.62913 15.2223 8.2288 14.2547 9.20508 13.6869C10.1813 13.1191 11.3184 13.0756 12.2889 13.4711C12.4135 13.5218 12.4888 13.6492 12.4714 13.7839C12.3367 14.8239 11.7385 15.7915 10.7622 16.3608C9.78593 16.93 8.64742 16.9721 7.67693 16.5752Z"
-                    fill="#565658" />
-                  <path
-                    d="M4.70765 7.38304C5.68393 7.31641 6.67904 7.68432 7.38156 8.47085C8.08408 9.25738 8.33756 10.2887 8.16085 11.2505C8.13622 11.3838 8.02469 11.4823 7.88998 11.4909C6.9137 11.5576 5.92004 11.1882 5.21752 10.4031C4.51645 9.6166 4.26152 8.58673 4.43823 7.62493C4.46286 7.49167 4.57294 7.39318 4.70765 7.38304Z"
-                    fill="#565658" />
-                  <path
-                    d="M11.7818 10.7738C10.9953 11.4763 9.96398 11.7298 9.00219 11.5531C8.86893 11.5285 8.77043 11.417 8.76174 11.2822C8.69511 10.306 9.06447 9.31231 9.84955 8.60979C10.6361 7.90872 11.666 7.65379 12.6278 7.8305C12.761 7.85513 12.8595 7.96521 12.8696 8.09992C12.9363 9.0762 12.5684 10.0713 11.7818 10.7738Z"
-                    fill="#565658" />
-                  <path
-                    d="M8.26341 6.72232C7.51599 7.03664 6.63821 7.02216 5.86906 6.60499C5.10136 6.18783 4.60886 5.46069 4.46546 4.66257C4.44084 4.52786 4.51471 4.39315 4.64073 4.33956C5.38815 4.02379 6.26594 4.03972 7.03508 4.45689C7.80423 4.87405 8.29528 5.60264 8.43868 6.40076C8.46329 6.53547 8.38943 6.67018 8.26341 6.72377V6.72232Z"
-                    fill="#565658" />
-                  <path
-                    d="M7.54364 3.20536C6.93528 3.05182 6.39644 2.639 6.10095 2.02918C5.8069 1.41937 5.81994 0.740029 6.07777 0.167876C6.13426 0.0433064 6.27476 -0.0247725 6.40803 0.00854273C7.01784 0.162082 7.55668 0.573453 7.85072 1.18472C8.14476 1.79453 8.13173 2.47387 7.87245 3.04602C7.81596 3.17059 7.67545 3.23867 7.54219 3.20536H7.54364Z"
-                    fill="#565658" />
-                  <path
-                    d="M9.23974 6.43287C9.10503 6.4575 8.97032 6.38362 8.91673 6.2576C8.6024 5.51018 8.61689 4.6324 9.03405 3.86325C9.45122 3.09555 10.1783 2.60307 10.9765 2.45967C11.1112 2.43504 11.2459 2.50892 11.2995 2.63494C11.6152 3.38235 11.5993 4.26014 11.1822 5.02929C10.765 5.79843 10.0364 6.28947 9.23829 6.43287H9.23974Z"
-                    fill="#565658" />
-                  <path
-                    d="M1.13387 23.3161C2.4969 22.6121 3.3066 21.3925 3.3153 21.3809C3.42393 21.2143 3.64845 21.1665 3.81647 21.2766C3.9845 21.3853 4.03085 21.6098 3.92221 21.7778C3.886 21.8343 3.00532 23.1655 1.46703 23.9607C1.41343 23.9882 1.35694 24.0012 1.30045 24.0012C1.17009 24.0012 1.04262 23.9303 0.978887 23.8057C0.887632 23.6275 0.95716 23.4088 1.13387 23.3175V23.3161Z"
-                    fill="#565658" />
-                </g>
-              </g>
-              <defs>
-                <clipPath id="clip0_16_1221">
-                  <rect width="13" height="24" fill="white" />
-                </clipPath>
-              </defs>
+            <svg class="partners__laurel partners__laurel--flip" xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 13 24" fill="none" aria-hidden="true">
+              <path d="M.94 0h11.94v24H.94V0Z" fill="none"/>
+              <path d="M3.79 20.4c-1.06-.33-1.95-1.13-2.36-2.25-.41-1.12-.24-2.3.35-3.24a.27.27 0 0 1 .33-.12c1.06.33 1.95 1.13 2.36 2.25.41 1.12.24 2.3-.35 3.24-.07.11-.21.16-.33.12Z" fill="#565658"/>
+              <path d="M6.99 18.2c1.11-.41 2.3-.24 3.23.35a.28.28 0 0 1 .12.34c-.33 1.05-1.12 1.95-2.24 2.36-1.12.41-2.3.24-3.24-.35-.11-.07-.16-.21-.12-.34.32-1.05 1.12-1.95 2.24-2.36Z" fill="#565658"/>
+              <path d="M6.65 13.01c.57.98.62 2.12.22 3.09-.05.12-.18.2-.31.18-1.04-.13-2.01-.73-2.58-1.71-.57-.97-.61-2.11-.21-3.08a.3.3 0 0 1 .31-.19c1.04.14 2 .74 2.57 1.71Z" fill="#565658"/>
+              <path d="M7.68 16.58c-.13-.06-.2-.18-.19-.32.14-1.04.74-2.01 1.72-2.57.97-.57 2.11-.62 3.08-.22a.3.3 0 0 1 .18.31c-.13 1.04-.73 2.01-1.71 2.58-.97.57-2.11.61-3.08.22Z" fill="#565658"/>
+              <path d="M4.71 7.38c.97-.06 1.97.3 2.67 1.09.7.79.96 1.82.78 2.78a.29.29 0 0 1-.27.24c-.98.07-1.97-.3-2.67-1.09-.7-.78-.96-1.81-.78-2.78a.29.29 0 0 1 .27-.24Z" fill="#565658"/>
             </svg>
           </div>
           <div class="partners__logos">
-            <div style="width:137.283px"><img src="src/assets/partner-renmoney.png" alt="Renmoney Microfinance Bank">
-            </div>
-            <div style="width:84.578px"><img src="src/assets/partner-nccc.png"
-                alt="Nigerian Consumer Credit Corporation"></div>
-            <div class="partner--cdcare" style="width:155.692px"><img src="src/assets/partner-cdcare.png" alt="CDcare">
-            </div>
-            <div style="width:160.996px"><img src="src/assets/partner-interswitch.png" alt="Interswitch"></div>
-            <div style="width:61.625px"><img src="src/assets/partner-nibss.png" alt="NIBSS"></div>
-            <div style="width:185.012px"><img src="src/assets/partner-crc.png" alt="CRC Credit Bureau"></div>
-            <div style="width:178.809px"><img src="src/assets/partner-creditregistry.png" alt="CreditRegistry"></div>
+            <div class="partner-logo"><img src="src/assets/partner-renmoney.svg" alt="Renmoney Microfinance Bank" loading="lazy"></div>
+            <div class="partner-logo"><img src="src/assets/partner-nccc.webp" alt="Nigerian Consumer Credit Corporation" loading="lazy"></div>
+            <div class="partner-logo partner--cdcare"><img src="src/assets/partner-cdcare.webp" alt="CDcare" loading="lazy"></div>
+            <div class="partner-logo"><img src="src/assets/partner-interswitch.webp" alt="Interswitch" loading="lazy"></div>
+            <div class="partner-logo"><img src="src/assets/partner-nibss.webp" alt="NIBSS - Nigeria Inter-Bank Settlement System" loading="lazy"></div>
+            <div class="partner-logo"><img src="src/assets/partner-crc.webp" alt="CRC Credit Bureau" loading="lazy"></div>
+            <div class="partner-logo"><img src="src/assets/partner-creditregistry.webp" alt="CreditRegistry" loading="lazy"></div>
           </div>
         </section>
-        <div class="pattern" aria-hidden="true"><img src="src/assets/pattern.png" alt=""><img
-            src="src/assets/pattern.png" alt=""><img src="src/assets/pattern.png" alt=""></div>
+
+        <div class="pattern" aria-hidden="true">
+          <img src="src/assets/pattern.webp" alt="" loading="lazy">
+          <img src="src/assets/pattern.webp" alt="" loading="lazy">
+          <img src="src/assets/pattern.webp" alt="" loading="lazy">
+        </div>
+
         <section class="numbers" aria-label="Greenbond in numbers">
           <div class="numbers__row">
             <div class="stat">
@@ -221,421 +263,543 @@
             </div>
           </div>
         </section>
+        <img class="coin" src="src/assets/3d-naira.webp" alt="3D Naira coin decorative element" loading="lazy" aria-hidden="true">
       </div>
-      <img class="coin" src="src/assets/3d-naira.png" alt="">
+
+      <!-- Loan Offer Feature Section -->
+      <section class="split" id="loans" aria-labelledby="loan-title">
+        <div class="split__row">
+          <div class="split__copy">
+            <div class="split__stack">
+              <p class="eyebrow" style="--dot:var(--brown)">Loan offer</p>
+              <h2 class="display h-44 split__title" id="loan-title">The funding you need. The flexibility you deserve.</h2>
+            </div>
+            <div class="split__body">
+              <div class="lead">
+                <p>From personal emergencies to transformative business opportunities, access financing designed to help you take action when it matters most.</p>
+                <p>Whether you're expanding your business, managing an important milestone, or seizing a time-sensitive opportunity, Greenbond provides loan solutions tailored to your financial reality.</p>
+              </div>
+              <div>
+                <a class="btn btn--brown" href="#loans">Explore Loan Options <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></a>
+              </div>
+            </div>
+          </div>
+          <div class="shape">
+            <img class="hero-image" src="src/assets/loan-offer-image.webp" alt="Two business colleagues discussing Greenbond loan options" loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <!-- More Loan Offers (3 Cards) -->
+      <section class="more" aria-labelledby="more-loan-title">
+        <div class="more__head">
+          <h2 class="display h-44" id="more-loan-title">Built for real<br>financial needs</h2>
+          <p class="lead">From personal needs to business opportunities, access financing designed to help you take action when it matters most.</p>
+        </div>
+        <div class="cards">
+          <!-- Card 1: Personal Loans -->
+          <article class="card">
+            <div class="card__media">
+              <img class="l" style="--w:489px;--h:326px;--x:53.5px;--y:10.56px" src="src/assets/personal-loans.webp" alt="Man reviewing personal loan document at home" loading="lazy">
+            </div>
+            <div class="card__text">
+              <h3 class="display h-20">Personal Loans</h3>
+              <p class="body">Get the financial support you need for important personal expenses, medical costs, or education plans with flexible tenors.</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Business Loans -->
+          <article class="card">
+            <div class="card__media">
+              <img class="l" style="--w:420px;--h:280px;--x:0px;--y:0px" src="src/assets/business-loans.webp" alt="Shop owner managing retail inventory at checkout" loading="lazy">
+            </div>
+            <div class="card__text">
+              <h3 class="display h-20">Business Loans</h3>
+              <p class="body">Access funding to support business growth, manage cash flow, purchase raw materials, or seize new market opportunities.</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Flexible Solutions -->
+          <article class="card">
+            <div class="card__media">
+              <img class="l" style="--w:420px;--h:280px;--x:0px;--y:0px" src="src/assets/flexible-solutions.webp" alt="Project manager in safety gear reviewing construction blueprints" loading="lazy">
+            </div>
+            <div class="card__text">
+              <h3 class="display h-20">Flexible Solutions</h3>
+              <p class="body">Choose tailored financing that aligns directly with your cash flows, seasonal cycles, and strategic milestone goals.</p>
+            </div>
+          </article>
+        </div>
+        <div class="more__foot">
+          <a class="btn btn--brown" href="#loans">Apply for a GB Loan <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></a>
+          <div class="rule" aria-hidden="true"><img src="src/assets/liner.svg" alt="" loading="lazy" decoding="async"></div>
+        </div>
+      </section>
+
+      <!-- Investments Split Section -->
+      <section class="split" id="investments" aria-labelledby="inv-title">
+        <div class="split__row">
+          <div class="shape">
+            <img class="hero-image" src="src/assets/investment-image.webp" alt="Professional investor monitoring investment portfolio growth" loading="lazy">
+          </div>
+          <div class="split__copy">
+            <div class="split__stack">
+              <p class="eyebrow" style="--dot:var(--teal)">Investments</p>
+              <h2 class="display h-44 split__title" id="inv-title">Put your<br>money to work</h2>
+            </div>
+            <div class="split__body">
+              <div class="lead">
+                <p>Saving is a start. Strategic investing helps your capital outpace inflation and compound sustainably.</p>
+                <p>Greenbond provides high-yield investment notes designed for individuals and businesses seeking competitive returns, absolute transparency, and capital security.</p>
+              </div>
+              <div>
+                <a class="btn btn--teal" href="#investments">Start Building Wealth <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- More Investments (3 Cards) -->
+      <section class="more" aria-labelledby="more-inv-title">
+        <div class="more__head">
+          <h2 class="display h-44" id="more-inv-title">Invest with<br>purpose</h2>
+          <p class="lead">From capital preservation to high-yield wealth generation, explore transparent investment options tailored to your personal and business milestones.</p>
+        </div>
+        <div class="cards">
+          <!-- Card 1: Diverse Opportunities -->
+          <article class="card">
+            <div class="card__media">
+              <img class="l" style="--w:382px;--h:382px;--x:0px;--y:27.56px" src="src/assets/diverse.webp" alt="Growth chart arrow ascending over stacked gold coins" loading="lazy">
+            </div>
+            <div class="card__text">
+              <h3 class="display h-20">Diverse Opportunities</h3>
+              <p class="body">Discover vetted investment options designed to balance liquidity, risk mitigation, and superior yields.</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Clear & Transparent -->
+          <article class="card">
+            <div class="card__media">
+              <img class="l l0" src="src/assets/clear.webp" alt="Clear and transparent financial growth graph" loading="lazy">
+            </div>
+            <div class="card__text">
+              <h3 class="display h-20">Clear &amp; Transparent</h3>
+              <p class="body">Understand exactly where your funds are allocated, how returns are generated, with zero hidden maintenance fees.</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Goal-Focused Growth -->
+          <article class="card">
+            <div class="card__media">
+              <img class="l l0" src="src/assets/goal.webp" alt="Green plants sprouting from coin piles representing financial growth" loading="lazy">
+            </div>
+            <div class="card__text">
+              <h3 class="display h-20">Goal-Focused Growth</h3>
+              <p class="body">Build toward your long-term milestones with fixed-tenor instruments designed for predictable wealth compounding.</p>
+            </div>
+          </article>
+        </div>
+        <div class="more__foot">
+          <a class="btn btn--teal" href="#investments">Explore Investment Opportunities <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></a>
+          <div class="rule" aria-hidden="true"><img src="src/assets/liner.svg" alt="" loading="lazy" decoding="async"></div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="why" id="why" aria-labelledby="why-title">
+        <div class="why__top">
+          <div class="why__copy">
+            <div class="stack">
+              <p class="eyebrow">Why choose us?</p>
+              <h2 class="display h-44" id="why-title">We are built<br>around your<br>goals</h2>
+            </div>
+            <p class="body">We believe financial services should be straightforward, accessible, and built around people—not bureaucratic hurdles.</p>
+          </div>
+          <div class="why__photo">
+            <img src="src/assets/why-photo.webp" alt="Greenbond financial advisors collaborating in modern office" loading="lazy">
+          </div>
+        </div>
+        <div class="values">
+          <div class="value">
+            <div class="value__head">
+              <img src="src/assets/trust.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy" decoding="async">
+              <h3 class="display h-20">Trust</h3>
+            </div>
+            <p class="body">We build lasting relationships through transparency, accountability, and responsible financial solutions.</p>
+          </div>
+          <div class="value">
+            <div class="value__head">
+              <img src="src/assets/integrity.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy" decoding="async">
+              <h3 class="display h-20">Integrity</h3>
+            </div>
+            <p class="body">We uphold the highest ethical standards, ensuring transparent terms, zero hidden charges, and honest guidance at every step.</p>
+          </div>
+          <div class="value value--wide">
+            <div class="value__head">
+              <img src="src/assets/accessibility.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy" decoding="async">
+              <h3 class="display h-20">Accessibility</h3>
+            </div>
+            <p class="body">We remove friction, making it seamless for individuals and corporate entities to access credit and investments on demand.</p>
+          </div>
+          <div class="value">
+            <div class="value__head">
+              <img src="src/assets/flexibility.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy" decoding="async">
+              <h3 class="display h-20">Flexibility</h3>
+            </div>
+            <p class="body">Different goals require different structures. Our financing products adapt to your unique cash flow and repayment cycles.</p>
+          </div>
+          <div class="value">
+            <div class="value__head">
+              <img src="src/assets/growth.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy" decoding="async">
+              <h3 class="display h-20">Growth</h3>
+            </div>
+            <p class="body">From injecting working capital to providing yield-bearing investments, our mandate is accelerating your forward momentum.</p>
+          </div>
+          <div class="value">
+            <div class="value__head">
+              <img src="src/assets/Security.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy" decoding="async">
+              <h3 class="display h-20">Security</h3>
+            </div>
+            <p class="body">Your funds, transactions, and sensitive personal information are safeguarded with bank-grade encryption and full regulatory compliance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testi" aria-labelledby="testi-title">
+        <div class="testi__head">
+          <p class="eyebrow">Testimonial</p>
+          <h2 class="display h-44" id="testi-title">What our<br>customers say</h2>
+          <p class="body">See how Greenbond is empowering individuals and businesses across Nigeria to achieve their financial ambitions.</p>
+        </div>
+        <div class="testi__stack">
+          <!-- Featured Testimonial -->
+          <figure class="t-feature">
+            <blockquote class="t-quote">“Greenbond has proven to be an exceptional financial ally. Their rapid credit underwriting and structured working capital facilities enabled us to scale operations seamlessly when conventional channels were too slow.”</blockquote>
+            <figcaption class="t-who">
+              <img class="mark" src="src/assets/renmoney-test.svg" alt="Renmoney partner logo" loading="lazy" decoding="async">
+              <span class="vr"><img class="vimg" data-len="44" src="src/assets/vrule.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+              <span>
+                <span class="t-who__name">Mr. Gilbert Grant</span>
+                <span class="t-who__role">Head, Premium Banking, <b>Renmoney MFB</b></span>
+              </span>
+            </figcaption>
+            <img class="t-person" src="src/assets/gilbert.webp" alt="Mr. Gilbert Grant of Renmoney Microfinance Bank" loading="lazy">
+          </figure>
+
+          <!-- 3 Customer Testimonials -->
+          <div class="t-row">
+            <figure class="t-card">
+              <img class="qmark" src="src/assets/quote.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+              <blockquote class="t-quote">“Greenbond made our corporate equipment financing prompt, transparent, and hassle-free. Their team truly understands the pace of growing businesses.”</blockquote>
+              <figcaption class="t-who">
+                <img class="mark" src="src/assets/renmoney-test.svg" alt="Partner seal" loading="lazy" decoding="async">
+                <span class="vr"><img class="vimg" src="src/assets/vrule.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+                <span>
+                  <span class="t-who__name">Mrs. Toyin Akinde</span>
+                  <span class="t-who__role">MD, Page Asset Mgt. Ltd</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="t-card">
+              <img class="qmark" src="src/assets/quote.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+              <blockquote class="t-quote">“Securing working capital for our pharmaceutical supply chain was effortless with Greenbond. Their repayment terms are realistic and fair.”</blockquote>
+              <figcaption class="t-who">
+                <img class="mark" src="src/assets/renmoney-test.svg" alt="Partner seal" loading="lazy" decoding="async">
+                <span class="vr"><img class="vimg" src="src/assets/vrule.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+                <span>
+                  <span class="t-who__name">Dr. Emeka Obi</span>
+                  <span class="t-who__role">Director, HealthPoint Medical</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="t-card">
+              <img class="qmark" src="src/assets/quote.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+              <blockquote class="t-quote">“Investing with Greenbond gives me peace of mind. Consistent, guaranteed yield returns and proactive portfolio management every quarter.”</blockquote>
+              <figcaption class="t-who">
+                <img class="mark" src="src/assets/renmoney-test.svg" alt="Partner seal" loading="lazy" decoding="async">
+                <span class="vr"><img class="vimg" src="src/assets/vrule.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></span>
+                <span>
+                  <span class="t-who__name">Aisha Bello</span>
+                  <span class="t-who__role">Founder, Savanna Agro Logistics</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq" id="faq" aria-labelledby="faq-title">
+        <div class="faq__row">
+          <div class="faq__left">
+            <div>
+              <p class="eyebrow" style="margin-bottom:24px">F.A.Q</p>
+              <h2 class="display h-44" id="faq-title">Frequently asked<br>questions</h2>
+            </div>
+            <div class="stack">
+              <h3 class="display faq__ask">Still have questions?</h3>
+              <p class="body">Can’t find the answers to your questions? Send us an email and our advisory team will respond promptly.</p>
+              <a class="btn" href="mailto:info@greenbondng.com">Send us an email <img src="src/assets/mail.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></a>
+            </div>
+          </div>
+
+          <!-- Accordion with Full Accessible Answers -->
+          <div class="acc" id="faq-list">
+            <!-- FAQ 1 -->
+            <div class="acc__item" data-open="false">
+              <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-a1">
+                <span>How can I be eligible for a Loan from Greenbond?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a1" hidden>
+                To be eligible for a Greenbond loan, you must be at least 21 years old, reside in Nigeria, possess a valid government-issued ID and Bank Verification Number (BVN), and demonstrate verifiable regular income or active business operations.
+              </div>
+            </div>
+
+            <!-- FAQ 2 (Initially Open) -->
+            <div class="acc__item" data-open="true">
+              <button class="acc__btn" type="button" aria-expanded="true" aria-controls="faq-a2">
+                <span>How much can I borrow and for how long?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a2">
+                Our minimum loan amount is ₦100,000, and you can access up to ₦5,000,000 depending on qualifying criteria and repayment capacity. Repayment tenors range from 1 to 12 months with flexible installment schedules.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="acc__item" data-open="false">
+              <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-a3">
+                <span>Why Greenbond Finance?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a3" hidden>
+                Greenbond is fully licensed and regulated by the Central Bank of Nigeria (CBN). We offer competitive interest rates, fast approvals within 24–48 hours, zero hidden management charges, and personalized client support.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="acc__item" data-open="false">
+              <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-a4">
+                <span>How do I contact you if/when I have a complaint or enquiry?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a4" hidden>
+                You can reach our dedicated support desk via email at info@greenbondng.com or call our direct phone lines: 0913 6000 671 or 0913 6000 672. You can also visit our Victoria Island, Lagos office during business hours.
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="acc__item" data-open="false">
+              <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-a5">
+                <span>Will Greenbond do a credit background check on me?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a5" hidden>
+                Yes. In line with CBN regulations and responsible lending standards, we perform a credit check through licensed credit bureaus (CRC, CreditRegistry, and FirstCentral) to assess financial history and offer appropriate terms.
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="acc__item" data-open="false">
+              <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-a6">
+                <span>How do I know the status of my application when I have applied for a loan?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a6" hidden>
+                You will receive immediate SMS and email confirmations at each stage: application receipt, underwriting assessment, and loan offer approval. You can also contact your assigned relationship manager directly.
+              </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="acc__item" data-open="false">
+              <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-a7">
+                <span>Can I trust Greenbond Finance Company Limited with my identity and bank details?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a7" hidden>
+                Absolutely. We maintain strict compliance with Nigeria Data Protection Regulation (NDPR) protocols and use 256-bit SSL encryption. We never sell, lease, or expose your personal or financial data to unauthorized parties.
+              </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="acc__item" data-open="false">
+              <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-a8">
+                <span>Can my loan request be rejected?</span>
+                <span class="acc__icons" aria-hidden="true">
+                  <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt="" loading="lazy" decoding="async">
+                  <img class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="" loading="lazy" decoding="async">
+                </span>
+              </button>
+              <div class="acc__panel" id="faq-a8" hidden>
+                Loan applications may be declined if mandatory eligibility criteria are not met, such as unverifiable income, severe credit bureau defaults, or incomplete documentation. In such events, our team will provide guidance on steps to qualify in the future.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Banner -->
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__box">
+          <img class="cta__photo" src="src/assets/cta-photo.webp" alt="Smiling business professional celebrating financial success" loading="lazy">
+          <div class="cta__copy">
+            <h2 class="display cta__title" id="cta-title">Your next financial<br>move starts here</h2>
+            <p class="cta__text">Whether you're looking for the capital to make something happen or an opportunity to grow your money, we are here to help you move forward.</p>
+            <div class="cta__actions">
+              <a class="btn" href="#loans">Explore Loans <img src="src/assets/icon-loans.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></a>
+              <a class="btn btn--cta-ghost" href="#investments">Explore Investments <img src="src/assets/icon-investment.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
-    <!-- Loan offer (27:1882) -->
-    <section class="split" id="loans" aria-labelledby="loan-title">
-      <div class="split__row">
-        <div class="split__copy">
-          <div class="split__stack">
-            <p class="eyebrow" style="--dot:var(--brown)">Loan offer</p>
-            <h2 class="display h-44 split__title" id="loan-title">The funding you need. The flexibility you deserve.
-            </h2>
-          </div>
-          <div class="split__body">
-            <div class="lead">
-              <p>From personal needs to business opportunities, access financing designed to help you take action when
-                it matters most.</p>
-              <p>Whether you're expanding your business, managing an important expense, or pursuing a new opportunity,
-                Greenbond provides loan solutions tailored to your financial needs.</p>
-            </div>
-            <div><a class="btn btn--brown" href="#">Explore Loan Options <img src="src/assets/right-icon.svg"
-                  alt=""></a></div>
-          </div>
-        </div>
-        <div class="shape">
-          <img class="hero-image" src="src/assets/loan-offer-image.png" alt="Two smiling Greenbond customers">
-          <!-- <img class="shape__back" src="assets/loan-shape.png" alt="" width="611" height="631"> -->
-          <!-- <div class="shape__photo"><img src="assets/loan-photo.png" alt="Two colleagues discussing a loan" width="551"
-              height="582.725"></div>
-        </div> -->
-        </div>
-    </section>
-
-    <!-- More loan offers (36:2151) -->
-    <section class="more" aria-labelledby="more-loan-title">
-      <div class="more__head">
-        <h2 class="display h-44" id="more-loan-title">Built for real<br>financial needs</h2>
-        <p class="lead">From personal needs to business opportunities, access financing designed to help you take action
-          when it matters most.</p>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="card__media">
-            <img class="l" style="--w:489px;--h:326px;--x:53.5px;--y:10.56px" src="src/assets/personal-loans.png"
-              alt="Man reviewing a document at home">
-          </div>
-          <div class="card__text">
-            <h3 class="display h-20">Personal Loans</h3>
-            <p class="body">Get the financial support you need for important personal expenses and plans.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__media">
-            <img class="l" style="--w:420.105px;--h:280px;--x:0.05px;--y:-0.44px" src="src/assets/Business Loans.png"
-              alt="Shop owner at a checkout counter">
-          </div>
-          <div class="card__text">
-            <h3 class="display h-20">Business Loans</h3>
-            <p class="body">Access funding to support business growth, manage cash flow or seize new opportunities.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__media">
-            <img class="l l0" src="assets/card-bg.png" alt="">
-          </div>
-          <div class="card__text">
-            <h3 class="display h-20">Flexible Solutions</h3>
-            <p class="body">Choose financing that aligns with your needs, repayment capacity, and financial goals.</p>
-          </div>
-        </article>
-      </div>
-      <div class="more__foot">
-        <a class="btn btn--brown" href="#">Apply for a GB Loan <img src="src/assets/right-icon.svg" alt=""></a>
-        <div class="rule" aria-hidden="true"><img src="src/assets/liner.svg" alt=""></div>
-      </div>
-    </section>
-
-    <!-- Investments (32:2024) -->
-    <section class="split" id="investments" aria-labelledby="inv-title">
-      <div class="split__row">
-        <div class="shape">
-          <img class="hero-image" src="src/assets/investment-image.png" alt="Two smiling Greenbond customers">
-        </div>
-        <div class="split__copy">
-          <div class="split__stack">
-            <p class="eyebrow" style="--dot:var(--teal)">Investments</p>
-            <h2 class="display h-44 split__title" id="inv-title">Put your<br>money to work</h2>
-          </div>
-          <div class="split__body">
-            <div class="lead">
-              <p>Saving is a start. Investing can help you take your financial goals further.</p>
-              <p>Greenbond provides investment opportunities designed for individuals and businesses looking to grow
-                their capital while working toward long-term financial goals.</p>
-            </div>
-            <div><a class="btn btn--teal" href="#">Start Building Wealth <img src="src/assets/right-icon.svg"
-                  alt=""></a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- More investments (37:128) -->
-    <section class="more" aria-labelledby="more-inv-title">
-      <div class="more__head">
-        <h2 class="display h-44" id="more-inv-title">Invest with<br>purpose</h2>
-        <p class="lead">From personal needs to business opportunities, access financing designed to help you take action
-          when it matters most.</p>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="card__media">
-            <img class="l" style="--w:382px;--h:382px;--x:0px;--y:27.56px" src="src/assets/diverse.png"
-              alt="Growth chart arrow rising over gold coins">
-          </div>
-          <div class="card__text">
-            <h3 class="display h-20">DIVERSE Opportunities</h3>
-            <p class="body">Discover investment options designed to help your capital work harder.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__media">
-            <img class="l l0" src="src/assets/clear.png" alt="">
-          </div>
-          <div class="card__text">
-            <h3 class="display h-20">Clear &amp; Transparent</h3>
-            <p class="body">Understand where your money goes and what you're investing in.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__media">
-            <img class="l l0" src="src/assets/goal.png" alt="Trees growing taller from ascending coin stacks">
-          </div>
-          <div class="card__text">
-            <h3 class="display h-20">Goal-Focused Growth</h3>
-            <p class="body">Build towards your financial objectives with investment solutions for different needs.</p>
-          </div>
-        </article>
-      </div>
-      <div class="more__foot">
-        <a class="btn btn--teal" href="#">Explore Investment Opportunities <img src="src/assets/right-icon.svg"
-            alt=""></a>
-        <div class="rule" aria-hidden="true"><img src="src/assets/right-icon.svg" alt=""></div>
-      </div>
-    </section>
-
-    <!-- Why choose us (21:1617) -->
-    <section class="why" aria-labelledby="why-title">
-      <div class="why__top">
-        <div class="why__copy">
-          <div class="stack">
-            <p class="eyebrow">Why choose us?</p>
-            <h2 class="display h-44" id="why-title">We are built<br>around your<br>goals</h2>
-          </div>
-          <p class="body">We believe financial services should be straightforward, accessible, and built around
-            people—not complicated processes.</p>
-        </div>
-        <div class="why__photo"><img src="src/assets/why-photo.png" alt="Smiling professionals at a networking event">
-        </div>
-      </div>
-      <div class="values">
-        <div class="value">
-          <div class="value__head"><img src="src/assets/trust.svg" alt="">
-            <h3 class="display h-20">Trust</h3>
-          </div>
-          <p class="body">We build lasting relationships through transparency, accountability, and responsible financial
-            solutions.</p>
-        </div>
-        <div class="value">
-          <div class="value__head"><img src="src/assets/integrity.svg" alt="">
-            <h3 class="display h-20">Integrity</h3>
-          </div>
-          <p class="body">We believe financial services should be straightforward, accessible, and built around people,
-            not complicated processes.</p>
-        </div>
-        <div class="value value--wide">
-          <div class="value__head"><img src="src/assets/accessibility.svg" alt="">
-            <h3 class="display h-20">Accessibility</h3>
-          </div>
-          <p class="body">We make it easier for individuals and businesses to access the financial solutions they need.
-          </p>
-        </div>
-        <div class="value">
-          <div class="value__head"><img src="src/assets/flexibility.svg" alt="">
-            <h3 class="display h-20">Flexibility</h3>
-          </div>
-          <p class="body">Different goals require different solutions. Our products are designed to meet a range of
-            financial needs.</p>
-        </div>
-        <div class="value">
-          <div class="value__head"><img src="src/assets/growth.svg" alt="">
-            <h3 class="display h-20">Growth</h3>
-          </div>
-          <p class="body">From providing capital to creating investment opportunities, we're focused on helping our
-            customers move forward.</p>
-        </div>
-        <div class="value">
-          <div class="value__head"><img src="src/assets/Security.svg" alt="">
-            <h3 class="display h-20">Security</h3>
-          </div>
-          <p class="body">Your money, payments, cards and personal information are protected with trusted security
-            designed for modern digital banking.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials (37:182) -->
-    <section class="testi" aria-labelledby="testi-title">
-      <div class="testi__head">
-        <p class="eyebrow">Testimonial</p>
-        <h2 class="display h-44" id="testi-title">What our<br>customers says</h2>
-        <p class="body">Can’t find the answers to your questions? Send us an email and we’ll get back to you as soon as
-          possible.</p>
-      </div>
-      <div class="testi__stack">
-        <figure class="t-feature" style="margin:0">
-          <blockquote class="t-quote" style="margin:0">“You’ll probably build a better product, just because of the
-            craft that using Linear infuses on your brain. Our speed is intense and Linear helps us be action biased.”
-          </blockquote>
-          <figcaption class="t-who">
-            <img class="mark" src="src/assets/renmoney-test.svg" alt="">
-            <span class="vr"><img data-len="44" src="src/assets/vrule.svg" alt=""></span>
-            <span><span class="t-who__name" style="display:block">Mr. Gilbert Grant</span><span class="t-who__role"
-                style="display:block">Head, Premium Banking, <b>Renmoney MFB</b></span></span>
-          </figcaption>
-          <img class="t-person" src="src/assets/gilbert.png" alt="Mr. Gilbert Grant">
-        </figure>
-        <div class="t-row">
-          <figure class="t-card" style="margin:0">
-            <img class="qmark" src="src/assets/quote.svg" alt="">
-            <blockquote class="t-quote" style="margin:0">“Greenbond made the process straightforward and gave us the
-              support we needed to move forward.”</blockquote>
-            <figcaption class="t-who"><img class="mark" src="src/assets/renmoney-test.svg" alt=""><span class="vr"><img
-                  data-len="44" src="src/assets/vrule.svg" alt=""></span><span><span class="t-who__name"
-                  style="display:block">Mrs. Toyin Akinde</span><span class="t-who__role" style="display:block">MD, Page
-                  Asset Mgt. Ltd</span></span></figcaption>
-          </figure>
-          <figure class="t-card" style="margin:0">
-            <img class="qmark" src="src/assets/quote.svg" alt="">
-            <blockquote class="t-quote" style="margin:0">“Greenbond made the process straightforward and gave us the
-              support we needed to move forward.”</blockquote>
-            <figcaption class="t-who"><img class="mark" src="src/assets/renmoney-test.svg" alt=""><span class="vr"><img
-                  src="src/assets/vrule.svg" alt=""></span><span><span class="t-who__name" style="display:block">Mrs.
-                  Toyin Akinde</span><span class="t-who__role" style="display:block">MD, Page
-                  Asset Mgt. Ltd</span></span></figcaption>
-          </figure>
-          <figure class="t-card" style="margin:0">
-            <img class="qmark" src="src/assets/quote.svg" alt="">
-            <blockquote class="t-quote" style="margin:0">“Greenbond made the process straightforward and gave us the
-              support we needed to move forward.”</blockquote>
-            <figcaption class="t-who"><img class="mark" src="src/assets/renmoney-test.svg" alt=""><span class="vr"><img
-                  src="src/assets/vrule.svg" alt=""></span><span><span class="t-who__name" style="display:block">Mrs.
-                  Toyin Akinde</span><span class="t-who__role" style="display:block">MD, Page
-                  Asset Mgt. Ltd</span></span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ (14:1105) -->
-    <section class="faq" aria-labelledby="faq-title">
-      <div class="faq__row">
-        <div class="faq__left">
-          <div>
-            <p class="eyebrow" style="margin-bottom:24px">F.A.Q</p>
-            <h2 class="display h-44" id="faq-title">Frequently asked<br>questions</h2>
-          </div>
-          <div class="stack">
-            <h3 class="display" style="font-size:24px;letter-spacing:-0.72px;white-space:nowrap">Still have questions?
-            </h3>
-            <p class="body">Can’t find the answers to your questions? Send us an email and we’ll get back to you as soon
-              as possible.</p>
-            <a class="btn" href="mailto:info@greenbondng.com">Send us an email <img src="src/assets/mail.svg"
-                alt=""></a>
-          </div>
-        </div>
-        <div class="acc" id="faq-list">
-          <div class="acc__item"><button class="acc__btn" type="button">How can I be eligible for a Loan from
-              Greenbond?</button><img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt=""></div>
-          <div class="acc__item acc__item--live" data-open="true">
-            <button class="acc__btn" type="button" aria-expanded="true" aria-controls="faq-a2">How much can I borrow and
-              for how long?</button>
-            <div class="acc__panel" id="faq-a2">Our minimum loan amount is N100,000 and you can get as much as
-              N5,000,000.00 depending on the applicant’s capacity to repay and other qualifying selection criteria.
-            </div>
-            <img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt=""><img
-              class="acc__icon acc__icon--minus" src="src/assets/icon-minus.svg" alt="">
-          </div>
-          <div class="acc__item"><button class="acc__btn" type="button">Why Greenbond Finance</button><img
-              class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt=""></div>
-          <div class="acc__item"><button class="acc__btn" type="button">How do I contact you if/when I have a complain
-              or enquiry<br>of any sort?</button><img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg"
-              alt=""></div>
-          <div class="acc__item"><button class="acc__btn" type="button">Will Greenbond do a credit background check on
-              me?</button><img class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt=""></div>
-          <div class="acc__item"><button class="acc__btn" type="button">How do I know the status of my application when
-              I have<br>applied for a loan?</button><img class="acc__icon acc__icon--plus"
-              src="src/assets/icon-plus.svg" alt=""></div>
-          <div class="acc__item"><button class="acc__btn" type="button">Can I trust Greenbond Finance Company Limited
-              with my<br>identity and bank account details?</button><img class="acc__icon acc__icon--plus"
-              src="src/assets/icon-plus.svg" alt=""></div>
-          <div class="acc__item"><button class="acc__btn" type="button">Can my loan request be rejected?</button><img
-              class="acc__icon acc__icon--plus" src="src/assets/icon-plus.svg" alt=""></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to action (16:1265) -->
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="cta__box">
-        <img class="cta__photo" src="src/assets/cta-photo.png" alt="Smiling man surrounded by 3D finance icons">
-        <div class="cta__copy">
-          <h2 class="display cta__title" id="cta-title">Your next financial<br>move starts here</h2>
-          <p class="cta__text">Whether you're looking for the capital to make something happen or an opportunity to grow
-            your money, we are here to help you move forward.</p>
-          <div class="cta__actions">
-            <a class="btn" href="#loans">Explore Loans <img src="src/assets/icon-loans.svg" alt=""></a>
-            <a class="btn btn--cta-ghost" href="#investments">Explore Investments <img
-                src="src/assets/icon-investment.svg" alt=""></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer (11:185) -->
-    <footer class="footer" id="contact">
+    <!-- Footer -->
+    <footer class="footer" id="contact" role="contentinfo">
       <div class="footer__wrap">
         <div class="footer__top">
-          <nav class="footer__nav" aria-label="Footer"><a href="#investments">Investments</a><a
-              href="#loans">Loans</a><a href="#">About us</a><a href="#">Media</a><a href="#contact">Contact us</a><a
-              href="#">Blog</a></nav>
-          <div class="footer__social">
-            <a href="#" aria-label="LinkedIn"><img src="src/assets/linkedin.svg" alt=""></a>
-            <a href="#" aria-label="Twitter"><img src="src/assets/twitter.svg" alt=""></a>
-            <a href="#" aria-label="Facebook"><img src="src/assets/facebook.svg" alt=""></a>
-            <a href="#" aria-label="GitHub"><img src="src/assets/instagram.svg" alt=""></a>
-            <a href="#" aria-label="GitHub"><img src="src/assets/tiktok.svg" alt=""></a>
+          <nav class="footer__nav" aria-label="Footer navigation">
+            <a href="#loans">Loans</a>
+            <a href="#investments">Investments</a>
+            <a href="#why">About us</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact us</a>
+          </nav>
+          <div class="footer__social" aria-label="Social media channels">
+            <a href="https://linkedin.com/company/greenbond-finance" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img src="src/assets/linkedin.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+            </a>
+            <a href="https://twitter.com/greenbondfcl" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <img src="src/assets/twitter.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+            </a>
+            <a href="https://facebook.com/greenbondfinance" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="src/assets/facebook.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+            </a>
+            <a href="https://instagram.com/greenbondfinance" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="src/assets/instagram.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+            </a>
+            <a href="https://tiktok.com/@greenbondfinance" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <img src="src/assets/tiktok.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async">
+            </a>
           </div>
         </div>
-        <div class="rule-mg" aria-hidden="true"><img style="width: 100%;" src="src/assets/rule-dashed.svg" alt=""></div>
+
+        <div class="rule-img" aria-hidden="true">
+          <img src="src/assets/rule-dashed.svg" alt="" loading="lazy" decoding="async">
+        </div>
+
         <div class="footer__cols">
           <div class="footer__left">
             <div class="f-block">
               <p class="f-label">Contact Us</p>
               <div class="f-lines">
-                <div class="f-line"><img src="src/assets/mail.svg" alt=""><a class="f-val"
-                    href="mailto:info@greenbondng.com">info@greenbondng.com</a></div>
-                <div class="f-line"><img src="src/assets/icon-phone.svg" alt=""><a class="f-val"
-                    href="tel:+2349136000671">0913 6000 671</a><span class="f-val">/</span><a class="f-val"
-                    href="tel:+2349136000672">0913 6000 672</a></div>
+                <div class="f-line">
+                  <img src="src/assets/mail.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async">
+                  <a class="f-val" href="mailto:info@greenbondng.com">info@greenbondng.com</a>
+                </div>
+                <div class="f-line">
+                  <img src="src/assets/icon-phone.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async">
+                  <a class="f-val" href="tel:+2349136000671">0913 6000 671</a>
+                  <span class="f-val">/</span>
+                  <a class="f-val" href="tel:+2349136000672">0913 6000 672</a>
+                </div>
               </div>
             </div>
+
             <div class="news">
               <p class="f-label">Newsletter</p>
               <div class="news__body">
-                <div style="display:flex;flex-direction:column;gap:14px">
+                <div class="news__intro">
                   <p class="display news__title">Stay in the loop</p>
-                  <p class="body">Stay updated with our press releases, financial insights, and resource highlights</p>
+                  <p class="body">Stay updated with our press releases, financial insights, and market highlights.</p>
                 </div>
-                <form class="news__form" action="#" method="post">
-                  <label class="visually-hidden" for="nl-email"
-                    style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email
-                    address</label>
-                  <input class="news__input" id="nl-email" name="email" type="email"
-                    placeholder="Business@creativestefan.com" autocomplete="email" required>
-                  <button class="btn" type="submit">Send us an email <img src="src/assets/mail.svg" alt=""></button>
+                <form class="news__form" id="newsletter-form">
+                  <label class="visually-hidden" for="nl-email">Email address</label>
+                  <input class="news__input" id="nl-email" name="email" type="email" placeholder="yourname@company.com" autocomplete="email" required>
+                  <button class="btn btn--news" type="submit">Subscribe <img src="src/assets/right-icon.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy" decoding="async"></button>
+                  <p class="news__feedback" id="newsletter-feedback" aria-live="polite" hidden></p>
                 </form>
               </div>
             </div>
-            <img class="footer__logo" src="src/assets/footer-logo.png" alt="Greenbond Finance Company Limited">
+
+            <img class="footer__logo" src="src/assets/footer-logo.webp" alt="Greenbond Finance Company Limited Logo" width="208" height="38" loading="lazy">
           </div>
-          <div class="footer__vr" aria-hidden="true"><img class="vmg" data-len="624" src="src/assets/vrule-dashed.svg"
-              alt=""></div>
+
+          <div class="footer__vr" aria-hidden="true">
+            <img class="vimg" data-len="624" src="src/assets/vrule-dashed.svg" alt="" loading="lazy" decoding="async">
+          </div>
+
           <div class="footer__right">
             <div class="f-two">
               <div class="f-block">
                 <p class="f-label">Office Address</p>
-                <p class="f-val">Westminster House,<br>Plot 1601 Adeola Hopewell street,<br>Victoria Island, Lagos</p>
+                <p class="f-val">Westminster House,<br>Plot 1601 Adeola Hopewell Street,<br>Victoria Island, Lagos</p>
               </div>
               <div class="f-block">
                 <p class="f-label">Opening Hours</p>
                 <p class="f-val">Monday to Friday:<br>8:00 am to 5:00 pm</p>
               </div>
             </div>
-            <div class="rule-img" aria-hidden="true"><img src="assets/rule-dashed-2.svg" alt=""></div>
+
+            <div class="rule-img" aria-hidden="true">
+              <img src="src/assets/rule-dashed.svg" alt="" loading="lazy" decoding="async">
+            </div>
+
             <div class="legal">
-              <p>All financial products and services offered by Greenbond Finance are subject to applicable terms,
-                conditions, eligibility requirements, and regulatory guidelines. The information provided on this
-                website is for general informational purposes only and should not be considered financial, investment,
-                or legal advice. Customers are encouraged to carefully review all relevant product information and seek
-                independent professional advice where necessary before making financial decisions.</p>
-              <p><b>Loans and Financing:</b> All loan applications are subject to eligibility checks, assessment, and
-                approval. Interest rates, fees, repayment terms, and other conditions may vary depending on the loan
-                product and the applicant's circumstances. Applying for a loan does not guarantee approval. Customers
-                should carefully assess their repayment capacity and understand their obligations before accepting any
-                loan offer.</p>
-              <p><b>Investments:</b> All investments involve some degree of risk, and returns are not guaranteed unless
-                expressly stated under the applicable product terms. Actual returns may vary, and investors may be
-                exposed to the risk of losing some or all of their invested capital, depending on the investment
-                product. Past performance, where applicable, is not a guarantee of future results. Prospective investors
-                should review the relevant investment terms and risks carefully before committing funds.</p>
-              <p>For further information about our products, terms, or services,<br>please contact Greenbond Finance
-                directly.</p>
+              <p>All financial products and services offered by Greenbond Finance are subject to applicable terms, conditions, eligibility requirements, and regulatory guidelines. The information provided on this website is for general informational purposes only and should not be considered financial, investment, or legal advice. Customers are encouraged to carefully review all relevant product information and seek independent professional advice where necessary before making financial decisions.</p>
+              <p><b>Loans and Financing:</b> All loan applications are subject to eligibility checks, credit assessment, and approval. Interest rates, fees, repayment terms, and other conditions may vary depending on the loan product and the applicant's circumstances. Applying for a loan does not guarantee approval. Customers should carefully assess their repayment capacity and understand their obligations before accepting any loan offer.</p>
+              <p><b>Investments:</b> All investments involve risk, and returns are not guaranteed unless expressly stated under applicable product terms. Actual returns may vary, and investors may be exposed to the risk of losing some or all of their invested capital, depending on the investment product. Past performance is not a guarantee of future results. Prospective investors should review relevant terms and risks carefully before committing funds.</p>
+              <p>For further information about our products, terms, or regulatory status, please contact Greenbond Finance directly.</p>
             </div>
           </div>
         </div>
-        <div class="rule-mg" aria-hidden="true"><img style="width: 100%;" src="src/assets/rule-dashed.svg" alt=""></div>
-        <div class="footer__base"><span>Copyright © 2026 Greenbond Finance Company Limited.</span><span>All Rights
-            Reserved.</span></div>
+
+        <div class="rule-img" aria-hidden="true">
+          <img src="src/assets/rule-dashed.svg" alt="" loading="lazy" decoding="async">
+        </div>
+
+        <div class="footer__base">
+          <span>Copyright © 2026 Greenbond Finance Company Limited.</span>
+          <span>All Rights Reserved. Licensed by the Central Bank of Nigeria (CBN).</span>
+        </div>
       </div>
-      <div class="pattern" aria-hidden="true"><img src="src/assets/pattern.png" alt=""><img src="src/assets/pattern.png"
-          alt=""><img src="src/assets/pattern.png" alt="">
+
+      <div class="pattern" aria-hidden="true">
+        <img src="src/assets/pattern.webp" alt="" loading="lazy">
+        <img src="src/assets/pattern.webp" alt="" loading="lazy">
+        <img src="src/assets/pattern.webp" alt="" loading="lazy">
       </div>
     </footer>
 
   </div>
+
   <script src="main.js"></script>
 </body>
 

@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
-# Downloads every static asset used by index.html into ./assets/.
-# The Figma asset URLs are temporary (they expire ~7 days after generation).
-# If any 404, re-run get_design_context for that node in Figma to refresh them.
+# Refresh the static assets from the Figma MCP asset API into src/assets/.
+#
+# The Figma asset URLs are temporary — they expire roughly 7 days after the
+# Figma context is generated. If a download 404s, re-run get_design_context
+# for that node in Figma and update the hash in the manifest below.
+#
+# Usage:
+#   ./fetch-assets.sh          download every asset into src/assets/
+#   ./fetch-assets.sh --check  verify every file the site references exists
+#
+# Raster downloads are re-encoded to WebP by optimize-assets.py, which also
+# rewrites the references in index.html and styles.css.
 set -euo pipefail
 cd "$(dirname "$0")"
-mkdir -p assets
-B="https://www.figma.com/api/mcp/asset"
 
+DEST="src/assets"
+BASE="https://www.figma.com/api/mcp/asset"
+
+# --- Figma nodes ------------------------------------------------------------
 NAV=23e6039a-f1d7-4e84-b55a-8557bca025d8
 HERO=bf6ec7ee-ca2a-4188-b158-7027c491f25e
 LOAN=dd842154-bac8-4e84-a1de-ff2b06c1ec4b
@@ -19,88 +30,121 @@ FAQ=8a63137f-ab39-4186-bddf-bb5be220f90f
 CTA=e62a3905-e60a-42f6-879e-ee8a84bf909a
 FOOT=ed8456f7-4aed-45a5-9c4f-95f1c4f830dc
 
-get() { # prefix file localname
-  echo "→ $3"
-  curl -fsSL "$B/$1/$2" -o "assets/$3"
-}
+# --- Manifest ---------------------------------------------------------------
+# <node>  <asset hash>  <file name used by the site>
+#
+# Only layers that the site actually renders are listed. Decorative Figma
+# layers that are recreated in CSS (swirls, card backdrops, the laurel) are
+# intentionally left out.
+#
+# loan-offer-image and investment-image are frame-level exports on the site;
+# the closest available layer (the photo) is listed for each.
+MANIFEST=$(cat <<EOF
+$NAV   f46ea.png   gb-logo.png
+$NAV   98b94.svg   arrow-down-s-line.svg
+$NAV   99b9a.svg   right-icon.svg
+$HERO  7ccef.png   cbn.png
+$HERO  f3ee9.png   3d-naira.png
+$HERO  c987c.svg   right-icon-black.svg
+$HERO  b5a0f.svg   chip-1.svg
+$HERO  2ca05.svg   chip-2.svg
+$HERO  07094.svg   chip-3.svg
+$HERO  976e8.svg   left-arrow-grey.svg
+$HERO  6574b.svg   partner-renmoney.svg
+$HERO  27c49.png   partner-nccc.png
+$HERO  a2cb5.png   partner-cdcare.png
+$HERO  8ae4e.png   partner-interswitch.png
+$HERO  f0e5e.png   partner-nibss.png
+$HERO  9c8ce.png   partner-crc.png
+$HERO  92b59.png   partner-creditregistry.png
+$HERO  abb6d.png   pattern.png
+$LOAN  29527.png   loan-offer-image.png
+$MLOAN 39aaf.png   personal-loans.png
+$MLOAN f0452.png   business-loans.png
+$MLOAN 399f9.png   flexible-solutions.png
+$MLOAN 5d01f.svg   liner.svg
+$INV   7e0e7.png   investment-image.png
+$MINV  8d063.png   diverse.png
+$MINV  f6a14.png   clear.png
+$MINV  28b90.png   goal.png
+$WHY   8c1c8.png   why-photo.png
+$WHY   28f7e.svg   trust.svg
+$WHY   535f6.svg   flexibility.svg
+$WHY   93384.svg   accessibility.svg
+$WHY   f530f.svg   growth.svg
+$WHY   2a3b3.svg   Security.svg
+$TEST  2b82f.png   gilbert.png
+$TEST  b49e6.svg   renmoney-test.svg
+$TEST  ce3b8.svg   vrule.svg
+$TEST  b57d0.svg   quote.svg
+$FAQ   e3392.svg   mail.svg
+$FAQ   2207c.svg   icon-plus.svg
+$FAQ   02a72.svg   icon-minus.svg
+$CTA   34d0d.png   cta-photo.png
+$CTA   42a81.svg   cta-lineart.svg
+$CTA   9436d.svg   icon-loans.svg
+$CTA   af4b3.svg   icon-investment.svg
+$FOOT  dc750.png   footer-logo.png
+$FOOT  b068f.svg   linkedin.svg
+$FOOT  ea853.svg   twitter.svg
+$FOOT  f2075.svg   facebook.svg
+$FOOT  e279f.svg   rule-dashed.svg
+$FOOT  6c70a.svg   icon-phone.svg
+$FOOT  bac7f.svg   vrule-dashed.svg
+EOF
+)
 
-# Navbar
-get $NAV f46ea.png logo.png
-get $NAV 98b94.svg chevron-down.svg
-get $NAV 99b9a.svg arrow-right-white.svg
-# Hero
-get $HERO 7ccef.png cbn-badge.png
-get $HERO e6c4f.png hero-person-a.png
-get $HERO 63157.png hero-person-b.png
-get $HERO 9452d.svg hero-swirl-a.svg
-get $HERO 12bd3.svg hero-swirl-b.svg
-get $HERO f3ee9.png coin.png
-get $HERO c987c.svg arrow-right-dark.svg
-get $HERO b5a0f.svg icon-working-capital.svg
-get $HERO 2ca05.svg icon-asset-finance.svg
-get $HERO 07094.svg icon-project-finance.svg
-get $HERO 976e8.svg carousel-prev.svg
-get $HERO c8b97.svg carousel-next.svg
-get $HERO da1eb.svg laurel.svg
-get $HERO e58ff.svg laurel-mask.svg
-get $HERO 6574b.svg partner-renmoney.svg
-get $HERO 27c49.png partner-nccc.png
-get $HERO a2cb5.png partner-cdcare.png
-get $HERO 8ae4e.png partner-interswitch.png
-get $HERO f0e5e.png partner-nibss.png
-get $HERO 9c8ce.png partner-crc.png
-get $HERO 92b59.png partner-creditregistry.png
-get $HERO abb6d.png pattern.png
-# Loan offer
-get $LOAN 8fa0f.png loan-shape.png
-get $LOAN 29527.png loan-photo.png
-# More loan offers (cards)
-get $MLOAN 2ef4f.png card-bg.png
-get $MLOAN 39aaf.png card-layer-32.png
-get $MLOAN f0452.png card-layer-33.png
-get $MLOAN 399f9.png card-layer-34.png
-get $MLOAN 5d01f.svg rule-light.svg
-# Investments
-get $INV 7e0e7.png invest-photo.png
-get $INV 87450.svg invest-shape.svg
-get $INV c5d67.svg invest-swirl.svg
-# More investments (cards)
-get $MINV 8d063.png inv-card1-layer37.png
-get $MINV 72b90.png inv-card2-layer38.png
-get $MINV f6a14.png inv-card2-layer39.png
-get $MINV 28b90.png inv-card3-layer36.png
-get $MINV 8bed4.svg rule-light-2.svg
-# Why choose us
-get $WHY 8c1c8.png why-photo.png
-get $WHY 28f7e.svg icon-trust.svg
-get $WHY 535f6.svg icon-timer.svg
-get $WHY 93384.svg icon-accessibility.svg
-get $WHY f530f.svg icon-growth.svg
-get $WHY 2a3b3.svg icon-security.svg
-# Testimonials
-get $TEST 2b82f.png testimonial-gilbert.png
-get $TEST 679f9.svg gb-mark-light.svg
-get $TEST b49e6.svg gb-mark-small.svg
-get $TEST ce3b8.svg vrule.svg
-get $TEST b57d0.svg quote-mark.svg
-# FAQ
-get $FAQ e3392.svg icon-mail.svg
-get $FAQ 2207c.svg icon-plus.svg
-get $FAQ 02a72.svg icon-minus.svg
-# CTA
-get $CTA 34d0d.png cta-photo.png
-get $CTA 42a81.svg cta-lineart.svg
-get $CTA 9436d.svg icon-loans.svg
-get $CTA af4b3.svg icon-invest.svg
-# Footer
-get $FOOT dc750.png footer-logo.png
-get $FOOT b068f.svg social-linkedin.svg
-get $FOOT ea853.svg social-twitter.svg
-get $FOOT f2075.svg social-facebook.svg
-get $FOOT fd9c4.svg social-github.svg
-get $FOOT 37976.svg social-youtube.svg
-get $FOOT e279f.svg rule-dashed.svg
-get $FOOT 6c70a.svg icon-phone.svg
-get $FOOT bac7f.svg vrule-dashed.svg
-get $FOOT 84c7e.svg rule-dashed-2.svg
+# --- Modes ------------------------------------------------------------------
+
+if [[ "${1:-}" == "--check" ]]; then
+  missing=0
+  for page in index.html styles.css; do
+    [[ -f "$page" ]] || continue
+    while IFS= read -r ref; do
+      [[ -n "$ref" ]] || continue
+      if [[ ! -f "$ref" ]]; then
+        echo "missing: $ref  (referenced by $page)"
+        missing=1
+      fi
+    done < <(grep -oE '(src|href)="[^"]+"|url\("?[^")]+"?\)' "$page" \
+      | sed -E 's/^(src|href)="//; s/"$//; s/^url\("//; s/"\)$//' \
+      | grep -E '^(src/assets|assets)/' | sort -u)
+  done
+  if [[ $missing -eq 0 ]]; then
+    echo "All referenced assets are present."
+  fi
+  exit $missing
+fi
+
+# --- Download ---------------------------------------------------------------
+
+mkdir -p "$DEST"
+failures=0
+
+echo "Fetching assets into $DEST/ ..."
+
+while read -r node hash name; do
+  [[ -n "$node" ]] || continue
+  printf '  → %-28s' "$name"
+  if curl -fsSL --max-time 120 --retry 3 --retry-delay 2 \
+    "$BASE/$node/$hash" -o "$DEST/$name"; then
+    echo "ok"
+  else
+    echo "FAILED (expired URL? re-run get_design_context for $node)"
+    failures=$((failures + 1))
+  fi
+done <<<"$MANIFEST"
+
+if [[ $failures -gt 0 ]]; then
+  echo
+  echo "$failures asset(s) failed to download."
+  exit 1
+fi
+
+# --- Post-process -----------------------------------------------------------
+
+echo
+echo "Optimising (PNG -> WebP, resizing to 2x) ..."
+python3 optimize-assets.py
+
 echo "Done."
