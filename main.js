@@ -10,23 +10,44 @@
   /* ---------- FAQ accordion ---------- */
   // Each .acc__item holds a trigger button and a panel. The trigger owns
   // aria-expanded; the panel is hidden when collapsed.
+  // Single-open accordion: opening one question automatically closes any other.
   const initAccordion = () => {
-    $$(".acc__item").forEach((item) => {
+    const items = $$(".acc__item");
+    if (!items.length) return;
+
+    const setItemOpen = (item, open) => {
       const btn = $(".acc__btn", item);
       const panel = $(".acc__panel", item);
       if (!btn || !panel) return;
 
-      const setOpen = (open) => {
-        item.dataset.open = String(open);
-        btn.setAttribute("aria-expanded", String(open));
-        panel.hidden = !open;
-      };
+      item.dataset.open = String(open);
+      btn.setAttribute("aria-expanded", String(open));
+      panel.hidden = !open;
+    };
+
+    items.forEach((item) => {
+      const btn = $(".acc__btn", item);
+      if (!btn) return;
 
       // Normalise the markup so CSS and ARIA agree on the initial state.
-      setOpen(item.dataset.open === "true");
+      setItemOpen(item, item.dataset.open === "true");
 
       btn.addEventListener("click", () => {
-        setOpen(item.dataset.open !== "true");
+        const isCurrentlyOpen = item.dataset.open === "true";
+
+        if (!isCurrentlyOpen) {
+          // Close all other accordion items in the same accordion container
+          const parent = item.closest(".acc") || document;
+          $$(".acc__item", parent).forEach((otherItem) => {
+            if (otherItem !== item) {
+              setItemOpen(otherItem, false);
+            }
+          });
+          setItemOpen(item, true);
+        } else {
+          // Toggle closed if user clicks the active question again
+          setItemOpen(item, false);
+        }
       });
     });
   };
