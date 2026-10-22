@@ -15,6 +15,19 @@
     const items = $$(".acc__item");
     if (!items.length) return;
 
+    // Ensure all panels have an inner container for zero-height cleanly animated collapse
+    items.forEach((item) => {
+      const panel = $(".acc__panel", item);
+      if (panel && !$(".acc__panel-inner", panel)) {
+        const inner = document.createElement("div");
+        inner.className = "acc__panel-inner";
+        while (panel.firstChild) {
+          inner.appendChild(panel.firstChild);
+        }
+        panel.appendChild(inner);
+      }
+    });
+
     const setItemOpen = (item, open, animate = false) => {
       const btn = $(".acc__btn", item);
       const panel = $(".acc__panel", item);
@@ -23,37 +36,51 @@
       item.dataset.open = String(open);
       btn.setAttribute("aria-expanded", String(open));
 
-      if (open) {
-        panel.hidden = false;
-        if (animate && window.gsap) {
+      if (animate && window.gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.killTweensOf(panel);
+        if (open) {
+          panel.hidden = false;
+          // Temporarily set height to auto to compute natural full scroll height
+          gsap.set(panel, { height: "auto", overflow: "hidden" });
+          const targetHeight = panel.offsetHeight;
+          const currentHeight = panel.style.height && panel.style.height !== "auto"
+            ? parseFloat(panel.style.height)
+            : 0;
+
           gsap.fromTo(
             panel,
-            { height: 0, opacity: 0 },
+            { height: currentHeight, opacity: currentHeight > 0 ? (parseFloat(panel.style.opacity) || 0) : 0 },
             {
-              height: "auto",
+              height: targetHeight,
               opacity: 1,
-              duration: 0.35,
+              duration: 0.32,
               ease: "power2.out",
               onComplete: () => {
-                gsap.set(panel, { clearProps: "height" });
+                gsap.set(panel, { clearProps: "height,overflow" });
               }
             }
           );
+        } else {
+          if (!panel.hidden) {
+            gsap.set(panel, { overflow: "hidden" });
+            gsap.to(panel, {
+              height: 0,
+              opacity: 0,
+              duration: 0.28,
+              ease: "power2.out",
+              onComplete: () => {
+                panel.hidden = true;
+                gsap.set(panel, { clearProps: "height,opacity,overflow" });
+              }
+            });
+          }
         }
       } else {
-        if (animate && window.gsap && !panel.hidden) {
-          gsap.to(panel, {
-            height: 0,
-            opacity: 0,
-            duration: 0.25,
-            ease: "power2.inOut",
-            onComplete: () => {
-              panel.hidden = true;
-              gsap.set(panel, { clearProps: "height,opacity" });
-            }
-          });
-        } else {
-          panel.hidden = true;
+        panel.hidden = !open;
+        if (open) {
+          panel.style.removeProperty("height");
+          panel.style.removeProperty("opacity");
+          panel.style.removeProperty("overflow");
         }
       }
     };
@@ -366,13 +393,13 @@
     const heroArt = $(".hero__art");
     const heroControls = $(".hero__controls");
 
-    if (heroBadge) heroTl.from(heroBadge, { y: 20, opacity: 0, duration: 0.5 }, "-=0.35");
-    if (heroTitle) heroTl.from(heroTitle, { y: 32, opacity: 0, duration: 0.7 }, "-=0.35");
-    if (heroSub) heroTl.from(heroSub, { y: 22, opacity: 0, duration: 0.6 }, "-=0.4");
-    if (heroActions.length) heroTl.from(heroActions, { y: 20, opacity: 0, stagger: 0.1, duration: 0.5 }, "-=0.35");
-    if (heroChips.length) heroTl.from(heroChips, { opacity: 0, y: 15, stagger: 0.05, duration: 0.4 }, "-=0.25");
-    if (heroArt) heroTl.from(heroArt, { scale: 0.94, opacity: 0, duration: 0.9 }, "-=0.7");
-    if (heroControls) heroTl.from(heroControls, { opacity: 0, y: 15, duration: 0.5 }, "-=0.3");
+    if (heroBadge) heroTl.from(heroBadge, { y: 20, opacity: 0, duration: 0.45 }, "-=0.3");
+    if (heroTitle) heroTl.from(heroTitle, { y: 32, opacity: 0, duration: 0.6 }, "-=0.3");
+    if (heroArt) heroTl.from(heroArt, { scale: 0.96, opacity: 0, duration: 0.6 }, "<+=0.1");
+    if (heroSub) heroTl.from(heroSub, { y: 22, opacity: 0, duration: 0.5 }, "-=0.35");
+    if (heroActions.length) heroTl.from(heroActions, { y: 20, opacity: 0, stagger: 0.08, duration: 0.45 }, "-=0.3");
+    if (heroChips.length) heroTl.from(heroChips, { opacity: 0, y: 15, stagger: 0.04, duration: 0.35 }, "-=0.25");
+    if (heroControls) heroTl.from(heroControls, { opacity: 0, y: 15, duration: 0.4 }, "-=0.2");
 
     // 2. Floating continuous micro-animations
     const coin = $(".coin");

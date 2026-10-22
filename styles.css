@@ -1323,6 +1323,10 @@ ul {
   border-color: rgba(22, 115, 71, 0.4);
 }
 
+.acc__item[data-open="true"] {
+  border-color: rgba(22, 115, 71, 0.35);
+}
+
 .acc__btn {
   display: block;
   width: 100%;
@@ -1341,29 +1345,42 @@ ul {
   width: 20px;
   height: 20px;
   pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.acc__icon--plus {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 .acc__icon--minus {
-  display: none;
+  opacity: 0;
+  transform: rotate(-90deg);
 }
 
 .acc__item[data-open="true"] .acc__icon--plus {
-  display: none;
+  opacity: 0;
+  transform: rotate(90deg);
 }
 
 .acc__item[data-open="true"] .acc__icon--minus {
-  display: block;
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 .acc__panel {
-  padding: 0 52px 16px 20px;
+  overflow: hidden;
   font: 400 16px/24px "Suisse Intl", var(--font-body);
   color: var(--grey);
-  margin-top: -4px;
 }
 
 .acc__panel[hidden] {
   display: none;
+}
+
+.acc__panel-inner {
+  padding: 0 52px 16px 20px;
+  margin-top: -4px;
 }
 
 /* ---------- CTA ---------- */
@@ -1866,6 +1883,11 @@ ul {
     align-self: center;
   }
 
+  /* Hide 3D coin on mobile layouts to prevent obstruction */
+  .coin {
+    display: none !important;
+  }
+
   /* Split sections stack */
   .split__row {
     flex-direction: column;
@@ -2154,10 +2176,7 @@ ul {
   }
 
   .coin {
-    width: 240px;
-    height: 190px;
-    left: calc(50% - 120px);
-    top: 420px;
+    display: none !important;
   }
 
   .acc__btn {
@@ -2166,7 +2185,7 @@ ul {
     padding: 14px 46px 14px 16px;
   }
 
-  .acc__panel {
+  .acc__panel-inner {
     padding: 0 46px 16px 16px;
   }
 
