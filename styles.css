@@ -218,6 +218,10 @@ ul {
 /* ---------- Navbar ---------- */
 .nav {
   position: relative;
+  /* The nav must sit above <main>. GSAP's entrance tween leaves a transform
+     on .nav, which creates a stacking context and traps the dropdown /
+     mobile menu z-index inside it — so the nav itself needs the z-index. */
+  z-index: 50;
   width: 100%;
   max-width: 100%;
   display: flex;
@@ -1172,7 +1176,7 @@ ul {
 }
 
 .t-who__info,
-.t-who > span:last-child {
+.t-who>span:last-child {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -2052,9 +2056,23 @@ ul {
     display: none;
   }
 
+  /* In a column layout, `flex: 1 0 0` resolves to a 0px height basis,
+     which (combined with min-height: 0) collapsed both columns and made
+     their content overlap. Size them to their content instead. */
+  .footer__left,
+  .footer__right {
+    flex: none;
+    width: 100%;
+  }
+
   .footer__left {
     min-height: 0;
+    justify-content: flex-start;
     gap: 44px;
+  }
+
+  .f-line {
+    flex-wrap: wrap;
   }
 }
 
@@ -2139,7 +2157,7 @@ ul {
   }
 
   .hero__title {
-    font-size: 36px;
+    font-size: 32px;
     letter-spacing: -1.08px;
   }
 

@@ -382,7 +382,7 @@
 
     const nav = $(".nav");
     if (nav) {
-      heroTl.from(nav, { y: -20, opacity: 0, duration: 0.7 });
+      heroTl.from(nav, { y: -20, opacity: 0, duration: 0.7, clearProps: "transform,opacity" });
     }
 
     const heroBadge = $(".hero__badge");
